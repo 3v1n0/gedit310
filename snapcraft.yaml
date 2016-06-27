@@ -16,7 +16,8 @@ parts:
         source: https://git.gnome.org/browse/gedit
         source-branch: gnome-3-10
         source-type: git
-        install-via: prefix
+#        install-via: prefix
+        configflags:  [--prefix=/usr]
         build-packages:
             -    libffi-dev
             -    cdbs
