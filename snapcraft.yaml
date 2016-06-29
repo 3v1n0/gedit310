@@ -6,7 +6,7 @@ confinement: devmode  # use "strict" to enforce system access only via declared 
 
 apps:
     gedit310:
-        command:  gtk-launch /bin/bash
+        command:  gtk-launch gedit
         plugs: [x11, unity7, home, gsettings]
 
 parts:
@@ -68,6 +68,7 @@ parts:
             -   libglib2.0-bin
             #   For dconf to work
             -   dconf-gsettings-backend
+            -   unity-gtk3-module 
 #            -   gedit-source-code-browser-plugin
 #            -   gedit-plugins
 #            -   gedit-latex-plugin
