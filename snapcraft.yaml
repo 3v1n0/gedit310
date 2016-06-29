@@ -6,7 +6,7 @@ confinement: devmode  # use "strict" to enforce system access only via declared 
 
 apps:
     gedit310:
-        command:  gtk-launch gedit
+        command:  gtk-launch /bin/bash
         plugs: [x11, unity7, home]
 
 parts:
@@ -17,7 +17,7 @@ parts:
         source-branch: gnome-3-10
         source-type: git
 #        install-via: prefix
-        configflags:  [--prefix=/usr]
+#        configflags:  [--prefix=/usr]
         build-packages:
             -    libffi-dev
             -    cdbs
