@@ -7,17 +7,18 @@ confinement: devmode  # use "strict" to enforce system access only via declared 
 apps:
     gedit310:
         command:  gtk-launch /bin/bash
-        plugs: [x11, unity7, home]
+        plugs: [x11, unity7, home, gsettings]
 
 parts:
     gedit:
-        after: [gtkconf]
         plugin: autotools
         source: https://git.gnome.org/browse/gedit
         source-branch: gnome-3-10
         source-type: git
-#        install-via: prefix
-#        configflags:  [--prefix=/usr]
+        #install-via: prefix
+        configflags:  [--prefix=/snap/gedit310/current/usr, --disable-gtk-doc, --disable-introspection]
+        organize:
+            snap/gedit310/current/usr: usr
         build-packages:
             -    libffi-dev
             -    cdbs
@@ -36,7 +37,9 @@ parts:
             -    libxml2-dev
             -    gtk-doc-tools
 
-            
+    deb:
+        plugin: nil
+        after: [gtkconf]        
         stage-packages:
             -   python3
             -   libatk1.0-0
@@ -60,6 +63,11 @@ parts:
             -   gir1.2-pango-1.0
             -   libpeas-1.0-0-python3loader
             -   iso-codes
+            -   light-themes
+            #   For schemas to compile
+            -   libglib2.0-bin
+            #   For dconf to work
+            -   dconf-gsettings-backend
 #            -   gedit-source-code-browser-plugin
 #            -   gedit-plugins
 #            -   gedit-latex-plugin
