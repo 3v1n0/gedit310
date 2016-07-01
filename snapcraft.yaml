@@ -6,7 +6,8 @@ confinement: devmode  # use "strict" to enforce system access only via declared 
 
 apps:
     gedit310:
-        command:  gtk-launch gedit
+        #command:  gtk-launch gedit
+        command:  desktop-launch gedit
         plugs: [x11, unity7, home, gsettings]
 
 parts:
@@ -39,7 +40,8 @@ parts:
 
     deb:
         plugin: nil
-        after: [gtkconf]        
+        after: [desktop/gtk3]
+        #after: [gtkconf]
         stage-packages:
             -   python3
             -   libatk1.0-0
