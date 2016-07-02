@@ -25,7 +25,6 @@ parts:
             -    cdbs
             -    gobject-introspection
             -    gsettings-desktop-schemas-dev
-            #-    gtk-doc-tools
             -    intltool
             -    iso-codes
             -    libenchant-dev
@@ -37,6 +36,7 @@ parts:
             -    libx11-dev
             -    libxml2-dev
             -    gtk-doc-tools
+            -    yelp-tools
 
     deb:
         plugin: nil
